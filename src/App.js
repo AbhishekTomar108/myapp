@@ -4,15 +4,16 @@ import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import React, {useState} from 'react';
 import Alert from "./components/Alert";
-// import About from "./components/About";
+import About from "./components/About";
 
-// import {
-//   BrowserRouter as Router,
-//   BrowserRouter,
-//   Routes,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  BrowserRouter,
+  Routes,
+  Route,
+  HashRouter,
+  Link
+} from "react-router-dom";
 
 
 
@@ -24,6 +25,7 @@ function App() {
   if(mode==='light')
   {
     console.log("chal rha h from if")
+    // console.log(color);
     setmode('dark');
     console.log(mode);
     document.body.style.backgroundColor='rgb(6 53 88)';
@@ -34,7 +36,10 @@ function App() {
   }
 
   else{
+    // console.log();
+
     console.log("chal rha h from else")
+    
 
     setmode('light')
     console.log(mode);
@@ -58,22 +63,22 @@ function App() {
  
   return (
     <>
-    {/* <BrowserRouter> */}
-      <Navbar title="MyApp" mode={mode} themefunc={themechange} alert={showalert}/>
+    <HashRouter>
+      <Navbar title="Textutil" mode={mode} themefunc={themechange} alert={showalert}/>
      
      <Alert alert={alert}/>
-     <TextForm heading="Enter the text" mode={mode}/>
-     {/* <Routes>
-          <Route exact path="/about" element={<About/>}/>
+     {/* <TextForm heading="Enter the text" mode={mode}/> */}
+     <Routes>
+          <Route exact path="/about" element={<About mode={mode}/>}/>
            
               
           <Route exact path="/" element={<TextForm heading="Enter the text" mode={mode}/>}/>
         {/* <TextForm mode={mode} heading="Enter Your Text"/> */}
             
           
-        {/* </Routes> */}
+        </Routes>
       
-  {/* </BrowserRouter> */} */
+  </HashRouter> 
   </>
   );
       
