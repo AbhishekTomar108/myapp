@@ -66,7 +66,7 @@ export default function TextForm(props) {
 <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={change_lowercase}>Change Lowercase</button>
 <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={cleartext}>Clear</button>
 <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={copytext}>Copy Text</button>
-<button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={removetext}>Remove Text</button>
+<button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={removetext}>Remove Extra space</button>
 </div>
 <div className="container my-1" style={{color:props.mode==='light'?'black':'white'}}>
 <h2>Your Text Summary </h2>
