@@ -1,6 +1,24 @@
 import React, {useState} from 'react';
 
 export default function TextForm(props) {
+
+  const removetext= ()=>
+  {
+    const regex = / /;
+    let newText = text;
+   
+    const checkText =(e)=>{
+      if(!regex.test(e))
+      {
+        return e;
+      }
+    }
+
+    let newTextArr = newText.split(" ").filter(checkText);
+    newText = newTextArr.join(" ");
+    setText(newText);
+
+  }
     const change_uppercase = ()=>
     {
          // console.log("uppercase chal rha h");
@@ -48,10 +66,11 @@ export default function TextForm(props) {
 <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={change_lowercase}>Change Lowercase</button>
 <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={cleartext}>Clear</button>
 <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={copytext}>Copy Text</button>
+<button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={removetext}>Remove Text</button>
 </div>
 <div className="container my-1" style={{color:props.mode==='light'?'black':'white'}}>
 <h2>Your Text Summary </h2>
-<p>conatins {text.split(" ").filter((element)=>{return element.length!==0}).length} Words  and {text.length} Letters</p> 
+<p>conatins {text.split(" ").filter((element)=>{return element.length!==0}).length} Words  and {text.length} Characters</p> 
 
 <p>{0.008 * (text.split(" ").filter((element)=>{return element.length!==0}).length)} minutes will take to read on average.</p>
 <h2>Preview</h2>
